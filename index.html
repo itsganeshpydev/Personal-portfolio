@@ -15,8 +15,10 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<script src="index.js"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
 
 <script>
 tailwind.config = {
@@ -28,6 +30,16 @@ tailwind.config = {
     }
   }
 }
+</script>
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+    emailjs.init("RwHntP8jCjzCKcsPU");
+      
+   })();
 </script>
 
 <style>
@@ -223,7 +235,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
         <p class="reveal text-xs font-medium text-accent tracking-widest uppercase mb-3">Portfolio</p>
         <h2 class="reveal d1 font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-white">My projects</h2>
       </div>
-      <a href="projects.html" class="reveal d1 text-sm font-medium text-zinc-500 dark:text-zinc-400 hover:text-accent transition-colors self-start sm:self-auto nl">All projects →</a>
+      
     </div>
 
     <div class="grid md:grid-cols-2 gap-6">
@@ -243,7 +255,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
           <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-5">A YouTube Homepage Clone developed to recreate the look and feel of YouTube’s main interface, featuring a responsive video grid, navigation sidebar, search functionality, and modern user interface elements.<br><br>
             The project focuses on clean design, responsive layouts, and user experience while demonstrating strong frontend development skills using HTML, CSS, JavaScript, and modern web development practices.<br><br>
             Through this project, I gained hands-on experience in building real-world UI components, improving layout accuracy, and creating scalable, user-friendly web interfaces.</p>
-          <a href=" https://itsganeshpydev.github.io/Youtube/" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">View case study <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+          <a href=" https://itsganeshpydev.github.io/Youtube/" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">View project<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
         </div>
       </article>
 
@@ -260,7 +272,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
             <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">papergrid.com clone</h3>
           </a>
           <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Marketing site and onboarding flow for a personal finance app targeting young professionals. Tailwind CSS + Alpine.js.</p>
-          <a href="https://itsganeshpydev.github.io/Papergrid/" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">View case study →</a>
+          <a href="https://itsganeshpydev.github.io/Papergrid/" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">View project →</a>
         </div>
       </article>
 
@@ -279,7 +291,7 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
             <h3 class="font-display font-bold text-xl text-zinc-900 dark:text-white mb-1.5">Neon Restaurant</h3>
           </a>
           <p class="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed mb-4">Bold editorial site for a Paris-based branding studio. Scroll-driven animations and custom cursor to match their premium positioning.</p>
-          <a href=case-study.html" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">View case study →</a>
+          <a href="https://itsganeshpydev.github.io/Restaurant/" class="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 dark:text-white nl">View project →</a>
         </div>
       </article>
 
@@ -508,37 +520,63 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 
   <span class="text-sm">itsganeshpydev</span>
 </a>
+<br>
 
-        <div class="reveal d2">
-          <form action="#" method="POST" novalidate>
-            <div class="flex flex-col gap-4">
-              <div class="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="fname" class="block text-xs font-medium text-zinc-400 mb-1.5">Name <span aria-hidden="true">*</span></label>
-                  <input type="text" id="fname" name="name" placeholder="Jane Smith" required autocomplete="name"
-                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
-                </div>
-                <div>
-                  <label for="femail" class="block text-xs font-medium text-zinc-400 mb-1.5">Email <span aria-hidden="true">*</span></label>
-                  <input type="email" id="femail" name="email" placeholder="jane@company.com" required autocomplete="email"
-                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
-                </div>
-              </div>
-              <div>
-                <label for="fsubject" class="block text-xs font-medium text-zinc-400 mb-1.5">Subject</label>
-                <input type="text" id="fsubject" name="subject" placeholder="Project inquiry"
-                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors">
-              </div>
-              <div>
-                <label for="fmessage" class="block text-xs font-medium text-zinc-400 mb-1.5">Message <span aria-hidden="true">*</span></label>
-                <textarea id="fmessage" name="message" rows="4" placeholder="Tell me about your project..." required
-                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3 placeholder-zinc-600 focus:outline-none focus:border-accent transition-colors resize-none"></textarea>
-              </div>
-              <button type="submit" class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
-                Send message →
-              </button>
-            </div>
-          </form>
+<div class="reveal d2">
+
+      <form onsubmit="SendMail(event)" novalidate>
+  <div class="flex flex-col gap-4">
+
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div>
+        <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+          Name <span>*</span>
+        </label>
+        <input type="text" id="name" placeholder="Jane Smith" required
+          class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+          Phone <span>*</span>
+        </label>
+        <input type="tel" id="number" placeholder="9876543210" required
+          class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+          Email <span>*</span>
+        </label>
+        <input type="email" id="email" placeholder="jane@example.com" required
+          class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
+      </div>
+    </div>
+
+    <div>
+      <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+        Subject
+      </label>
+      <input type="text" id="subject" placeholder="Project Inquiry"
+        class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
+    </div>
+
+    <div>
+      <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+        Message <span>*</span>
+      </label>
+      <textarea id="message" rows="4" placeholder="Tell me about your project..." required
+        class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3"></textarea>
+    </div>
+
+    <button type="submit"
+      class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
+      Send Message →
+    </button>
+
+  </div>
+</form>
+
         </div>
 
       </div>
@@ -599,6 +637,35 @@ function app() {
       }
     }
   }
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+emailjs.init("RwHntP8jCjzCKcsPU");
+
+function SendMail(event) {
+    event.preventDefault();
+
+    const params = {
+        name: document.getElementById("name").value,
+        number: document.getElementById("number").value,
+        email: document.getElementById("email").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+    };
+
+    emailjs.send("service_kxisrgu", "template_9ciqgb7", params)
+    .then(() => {
+        alert("✅ Message sent successfully!");
+        event.target.reset();
+    })
+    .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("❌ Failed to send message. Check Console (F12)");
+    });
 }
 </script>
 
