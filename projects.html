@@ -90,13 +90,7 @@
 
     <section class="pb-24">
       <div class="max-w-6xl mx-auto px-6">
-        <!--
-          CORRECTIF : on itere sur TOUS les projets, x-show + x-transition gerent
-          la visibilite de chaque carte. L'ancienne version utilisait x-for sur
-          filteredProjects (computed), ce qui forcait un re-render complet du DOM
-          a chaque changement de filtre — detruisant les classes .reveal et cachant
-          tout le contenu.
-        -->
+        
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           <template x-for="p in allProjects" :key="p.id">
             <div

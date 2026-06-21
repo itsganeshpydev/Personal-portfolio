@@ -522,63 +522,61 @@ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/sv
 </a>
 <br>
 
-<div class="reveal d2">
+          <div class="reveal d2">
 
-      <form onsubmit="SendMail(event)" novalidate>
-  <div class="flex flex-col gap-4">
+            <form onsubmit="SendMail(event)" novalidate>
+            <div class="flex flex-col gap-4">
 
-    <div class="grid sm:grid-cols-2 gap-4">
-      <div>
-        <label class="block text-xs font-medium text-zinc-400 mb-1.5">
-          Name <span>*</span>
-        </label>
-        <input type="text" id="name" placeholder="Jane Smith" required
-          class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
-      </div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+                    Name <span>*</span>
+                  </label>
+                  <input type="text" id="name" placeholder="Jane Smith" required
+                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
+                </div>
 
-      <div>
-        <label class="block text-xs font-medium text-zinc-400 mb-1.5">
-          Phone <span>*</span>
-        </label>
-        <input type="tel" id="number" placeholder="9876543210" required
-          class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
-      </div>
+                <div>
+                  <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+                    Phone <span>*</span>
+                  </label>
+                  <input type="tel" id="number" placeholder="9876543210" required
+                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
+                </div>
 
-      <div>
-        <label class="block text-xs font-medium text-zinc-400 mb-1.5">
-          Email <span>*</span>
-        </label>
-        <input type="email" id="email" placeholder="jane@example.com" required
-          class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
-      </div>
-    </div>
+                <div>
+                  <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+                    Email <span>*</span>
+                  </label>
+                  <input type="email" id="email" placeholder="jane@example.com" required
+                    class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
+                </div>
+              </div>
 
-    <div>
-      <label class="block text-xs font-medium text-zinc-400 mb-1.5">
-        Subject
-      </label>
-      <input type="text" id="subject" placeholder="Project Inquiry"
-        class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
-    </div>
+              <div>
+                <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+                  Subject
+                </label>
+                <input type="text" id="subject" placeholder="Project Inquiry"
+                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3">
+              </div>
 
-    <div>
-      <label class="block text-xs font-medium text-zinc-400 mb-1.5">
-        Message <span>*</span>
-      </label>
-      <textarea id="message" rows="4" placeholder="Tell me about your project..." required
-        class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3"></textarea>
-    </div>
+              <div>
+                <label class="block text-xs font-medium text-zinc-400 mb-1.5">
+                  Message <span>*</span>
+                </label>
+                <textarea id="message" rows="4" placeholder="Tell me about your project..." required
+                  class="w-full bg-zinc-800 border border-zinc-700 text-white text-sm rounded-xl px-4 py-3"></textarea>
+              </div>
 
-    <button type="submit"
-      class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
-      Send Message →
-    </button>
-
-  </div>
-</form>
-
+              <button type="submit"
+                class="shimmer w-full bg-accent text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-accent-light transition-colors">
+                Send Message →
+              </button>
+              
+            </div>
+          </form>
         </div>
-
       </div>
     </div>
   </div>
@@ -649,23 +647,51 @@ emailjs.init("RwHntP8jCjzCKcsPU");
 function SendMail(event) {
     event.preventDefault();
 
+    const name = document.getElementById("name").value.trim();
+    const number = document.getElementById("number").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // 1. Check empty fields
+    if (name === "" || number === "" || email === "" || subject === "" || message === "") {
+        alert("⚠️ Please fill in all the fields before submitting.");
+        return;
+    }
+
+    // 2. Phone number validation (must be exactly 10 digits)
+    const phonePattern = /^[0-9]{10}$/;
+    if (!phonePattern.test(number)) {
+        alert("⚠️ Please enter a valid 10-digit phone number.");
+        return;
+    }
+
+    // 3. Email validation (basic check)
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert("⚠️ Please enter a valid email address.");
+        return;
+    }
+
     const params = {
-        name: document.getElementById("name").value,
-        number: document.getElementById("number").value,
-        email: document.getElementById("email").value,
-        subject: document.getElementById("subject").value,
-        message: document.getElementById("message").value
+        name: name,
+        number: number,
+        email: email,
+        subject: subject,
+        message: message
     };
 
     emailjs.send("service_kxisrgu", "template_9ciqgb7", params)
-    .then(() => {
-        alert("✅ Message sent successfully!");
-        event.target.reset();
-    })
-    .catch((error) => {
-        console.error("EmailJS Error:", error);
-        alert("❌ Failed to send message. Check Console (F12)");
-    });
+        .then(() => {
+            alert("✅ Message sent successfully!");
+
+            // reset form
+            document.querySelector("form").reset();
+        })
+        .catch((error) => {
+            console.error("EmailJS Error:", error);
+            alert("❌ Failed to send message. Please try again.");
+        });
 }
 </script>
 
